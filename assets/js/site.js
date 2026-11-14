@@ -1,0 +1,25 @@
+// Encabezado, navegación y pie comunes. Este sitio no enlaza al sitio de profesionales.
+const root = document.body.dataset.root || './';
+const page = document.body.dataset.page || '';
+const NAV = [
+  ['que-es', 'Qué es', 'que-es/'],
+  ['senales', 'Señales de alarma', 'senales/'],
+  ['consulta', 'Prepare su consulta', 'consulta/'],
+  ['donde', 'Dónde consultar', 'donde/'],
+  ['acerca', 'Acerca de', 'acerca/'],
+];
+const logo = '<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="var(--teal)"/><path d="M8 32c7-11 15-16 24-16s17 5 24 16c-7 11-15 16-24 16S15 43 8 32z" fill="none" stroke="var(--bg)" stroke-width="4"/><circle cx="32" cy="32" r="8" fill="var(--bg)"/></svg>';
+document.getElementById('site-header').innerHTML = `
+  <div class="preview">Versión preliminar en revisión. No difundir.</div>
+  <header class="site-header"><div class="container">
+    <a class="brand" href="${root}">${logo}<span>Enfermedad ocular tiroidea<small>Información para pacientes y familias</small></span></a>
+    <nav class="nav" aria-label="Principal">
+      ${NAV.map(([id, label, href]) => `<a href="${root}${href}"${id === page ? ' aria-current="page"' : ''}>${label}</a>`).join('')}
+    </nav>
+  </div></header>`;
+document.getElementById('site-footer').innerHTML = `
+  <footer class="site-footer"><div class="container">
+    <p><strong>Esta información es general y no reemplaza la consulta con su médico.</strong> No cambie ni suspenda ningún tratamiento sin hablar antes con su equipo de salud.</p>
+    <p>Si pierde visión de repente, acuda a urgencias. Línea de emergencias en Colombia: 123.</p>
+    <p>Grupo Colombiano de Enfermedad Ocular Tiroidea (GCEOT). Este sitio no recoge ni guarda datos. <a href="${root}acerca/">Quiénes somos y cómo se financia</a>.</p>
+  </div></footer>`;

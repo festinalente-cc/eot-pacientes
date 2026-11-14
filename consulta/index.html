@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Prepare su consulta · Enfermedad ocular tiroidea</title>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body data-root="../" data-page="consulta">
+  <div id="site-header"></div>
+  <main id="main">
+    <div class="container">
+      <div class="page-head"><h1>Prepare su consulta</h1><span class="draft-bar">Borrador pendiente de revisión clínica</span>
+      <p class="muted no-print">Llene esta hoja en pantalla e imprímala o guárdela como PDF para llevarla a su cita. Nada de lo que escriba se guarda ni se envía.</p></div>
+      <form id="hoja" autocomplete="off">
+        <fieldset><legend>Sobre mí</legend>
+          <label class="field">Fecha de la cita<input type="text"></label>
+          <label class="field">¿Cuándo empezaron las molestias en los ojos?<input type="text"></label>
+          <label class="field">Mi problema de tiroides y desde cuándo lo tengo<input type="text"></label>
+        </fieldset>
+        <fieldset><legend>Lo que he notado</legend>
+          <label class="opt"><input type="checkbox"><span>Ojos rojos</span></label>
+          <label class="opt"><input type="checkbox"><span>Ojos secos o con arenilla</span></label>
+          <label class="opt"><input type="checkbox"><span>Lagrimeo</span></label>
+          <label class="opt"><input type="checkbox"><span>Párpados hinchados</span></label>
+          <label class="opt"><input type="checkbox"><span>Ojos más salidos</span></label>
+          <label class="opt"><input type="checkbox"><span>Molestia con la luz</span></label>
+          <label class="opt"><input type="checkbox"><span>Dolor o presión detrás de los ojos</span></label>
+          <label class="opt"><input type="checkbox"><span>Dolor al mover los ojos</span></label>
+          <label class="opt"><input type="checkbox"><span>Visión doble</span></label>
+          <label class="opt"><input type="checkbox"><span>Visión borrosa</span></label>
+          <label class="opt"><input type="checkbox"><span>Colores apagados</span></label>
+          <label class="opt"><input type="checkbox"><span>Dificultad para cerrar los ojos</span></label>
+          <label class="field" style="margin-top:.8rem">¿Un ojo o los dos? ¿Ha cambiado en las últimas semanas?<textarea></textarea></label>
+        </fieldset>
+        <fieldset><legend>Cómo me afecta</legend>
+          <label class="field">En mi trabajo, al leer, al conducir, en mi ánimo o en mi vida social<textarea></textarea></label>
+        </fieldset>
+        <fieldset><legend>Mis hábitos y tratamientos</legend>
+          <label class="opt"><input type="checkbox"><span>Fumo o convivo con personas que fuman</span></label>
+          <label class="field" style="margin-top:.6rem">Medicamentos que tomo, con sus dosis<textarea></textarea></label>
+          <label class="field">Tratamientos que he recibido para la tiroides o para los ojos<textarea></textarea></label>
+        </fieldset>
+        <fieldset><legend>Preguntas que quiero hacer</legend>
+          <ul class="small muted no-print">
+            <li>¿Mi enfermedad está activa? ¿Qué tan grave es?</li>
+            <li>¿Qué opciones de tratamiento tengo, con qué beneficios y riesgos?</li>
+            <li>¿Qué señales deben hacerme consultar de urgencia?</li>
+            <li>¿Cada cuánto debo volver a control?</li>
+          </ul>
+          <label class="field">Mis preguntas<textarea></textarea></label>
+        </fieldset>
+        <div class="actions no-print">
+          <button type="button" class="btn btn-primary" id="imprimir">Imprimir o guardar como PDF</button>
+          <button type="reset" class="btn btn-ghost">Borrar todo</button>
+        </div>
+      </form>
+    </div>
+    <script>document.getElementById('imprimir').addEventListener('click', function () { window.print(); });</script>
+  </main>
+  <div id="site-footer"></div>
+  <script type="module" src="../assets/js/site.js"></script>
+</body>
+</html>
