@@ -138,3 +138,9 @@ input[type="text"] { font: inherit; width: 100%; padding: .5rem .7rem; border: 1
 /* Encabezado: marca y tema en la primera fila, menú en la segunda */
 .site-header .theme-btn { order: 2; margin-left: auto; }
 .site-header .nav { order: 3; width: 100%; margin-left: -.7rem; }
+
+/* Portada: acciones arriba, iris más pequeño; selector de tema discreto */
+.hero { padding: 2rem 0 1.5rem; }
+.hero-iris { width: 220px; height: 220px; }
+@media (max-width: 860px) { .hero-iris { width: 96px; height: 96px; } }
+.site-header .theme-btn { font-size: .8rem; font-weight: 500; padding: .25rem .6rem; color: var(--muted); border-color: var(--border); }
