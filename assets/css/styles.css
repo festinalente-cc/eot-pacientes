@@ -144,3 +144,7 @@ input[type="text"] { font: inherit; width: 100%; padding: .5rem .7rem; border: 1
 .hero-iris { width: 220px; height: 220px; }
 @media (max-width: 860px) { .hero-iris { width: 96px; height: 96px; } }
 .site-header .theme-btn { font-size: .8rem; font-weight: 500; padding: .25rem .6rem; color: var(--muted); border-color: var(--border); }
+
+/* Tema oscuro azul verdoso (tono tomado del iris de portada) */
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #031c22; --card: #0c2730; --border: #16373f; --border-strong: #24505a; --teal-100: #12414a; --teal-50: #0d3039; --ina-bg: #14313a; --apr: #a9d0f5; --apr-bg: #1f4368; } }
+:root[data-theme="dark"] { --bg: #031c22; --card: #0c2730; --border: #16373f; --border-strong: #24505a; --teal-100: #12414a; --teal-50: #0d3039; --ina-bg: #14313a; --apr: #a9d0f5; --apr-bg: #1f4368; }
