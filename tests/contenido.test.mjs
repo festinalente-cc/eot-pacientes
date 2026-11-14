@@ -30,8 +30,14 @@ test('todas las páginas llevan noindex y el aviso común', () => {
     assert.ok(s.includes('id="site-footer"') && s.includes('assets/js/site.js'), p);
   }
 });
-test('nada guarda ni envía datos', () => {
-  for (const [p, s] of pages) assert.ok(!/localStorage|sessionStorage|fetch\(|XMLHttpRequest|action=|sendBeacon|document\.cookie/.test(s), p);
+test('nada guarda ni envía datos, salvo la preferencia de tema', () => {
+  for (const [p, s] of pages) {
+    assert.ok(!/sessionStorage|fetch\(|XMLHttpRequest|action=|sendBeacon|document\.cookie|indexedDB/.test(s), p);
+    if (p !== 'assets/js/theme.js') assert.ok(!/localStorage/.test(s), p);
+  }
+  const theme = pages.find(([p]) => p === 'assets/js/theme.js')[1];
+  assert.ok(theme.includes("var KEY = 'tema'"));
+  for (const call of theme.match(/localStorage\.\w+\(([^)]*)\)/g)) assert.ok(/\(KEY(, v)?\)/.test(call), call);
 });
 test('las señales de alarma están en la portada y en su página, con la línea 123', () => {
   const get = (name) => html.find(([p]) => p === name)[1];

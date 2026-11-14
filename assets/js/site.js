@@ -16,10 +16,27 @@ document.getElementById('site-header').innerHTML = `
     <nav class="nav" aria-label="Principal">
       ${NAV.map(([id, label, href]) => `<a href="${root}${href}"${id === page ? ' aria-current="page"' : ''}>${label}</a>`).join('')}
     </nav>
+    <button type="button" class="theme-btn" id="theme-btn"></button>
   </div></header>`;
 document.getElementById('site-footer').innerHTML = `
   <footer class="site-footer"><div class="container">
     <p><strong>Esta información es general y no reemplaza la consulta con su médico.</strong> No cambie ni suspenda ningún tratamiento sin hablar antes con su equipo de salud.</p>
     <p>Si pierde visión de repente, acuda a urgencias. Línea de emergencias en Colombia: 123.</p>
-    <p>Grupo Colombiano de Enfermedad Ocular Tiroidea (GCEOT). Este sitio no recoge ni guarda datos. <a href="${root}acerca/">Quiénes somos y cómo se financia</a>.</p>
+    <p>Grupo Colombiano de Enfermedad Ocular Tiroidea (GCEOT). Este sitio no recoge ni envía datos. <a href="${root}acerca/">Quiénes somos y cómo se financia</a>.</p>
   </div></footer>`;
+
+// Selector de tema: sistema → claro → oscuro.
+const THEMES = ['system', 'light', 'dark'];
+const THEME_LABEL = { system: 'del sistema', light: 'claro', dark: 'oscuro' };
+const themeBtn = document.getElementById('theme-btn');
+function paintTheme() {
+  const t = window.eotTheme ? window.eotTheme.get() : 'system';
+  themeBtn.textContent = `Tema: ${THEME_LABEL[t]}`;
+  themeBtn.setAttribute('aria-label', `Tema actual: ${THEME_LABEL[t]}. Pulse para cambiar.`);
+}
+themeBtn.addEventListener('click', () => {
+  const t = window.eotTheme.get();
+  window.eotTheme.set(THEMES[(THEMES.indexOf(t) + 1) % THEMES.length]);
+  paintTheme();
+});
+if (window.eotTheme) paintTheme(); else themeBtn.hidden = true;
