@@ -1,4 +1,5 @@
 // Encabezado, navegación y pie comunes. Este sitio no enlaza al sitio de profesionales.
+import { logoSmall, logoLarge } from './logo.js';
 const root = document.body.dataset.root || './';
 const page = document.body.dataset.page || '';
 const NAV = [
@@ -22,7 +23,7 @@ document.getElementById('site-footer').innerHTML = `
   <footer class="site-footer"><div class="container">
     <p><strong>Esta información es general y no reemplaza la consulta con su médico.</strong> No cambie ni suspenda ningún tratamiento sin hablar antes con su equipo de salud.</p>
     <p>Si pierde visión de repente, acuda a urgencias. Línea de emergencias en Colombia: 123.</p>
-    <p>Grupo Colombiano de Enfermedad Ocular Tiroidea (GCEOT). Este sitio no recoge ni envía datos. <a href="${root}acerca/">Quiénes somos y cómo se financia</a>.</p>
+    <p>${logoSmall(16)}Grupo Colombiano de Enfermedad Ocular Tiroidea. Este sitio no recoge ni envía datos. <a href="${root}acerca/">Quiénes somos y cómo se financia</a>.</p>
   </div></footer>`;
 
 // Selector de tema: sistema → claro → oscuro.
@@ -40,3 +41,6 @@ themeBtn.addEventListener('click', () => {
   paintTheme();
 });
 if (window.eotTheme) paintTheme(); else themeBtn.hidden = true;
+
+const lockup = document.getElementById('gceot-lockup');
+if (lockup) lockup.innerHTML = logoLarge(`${root}assets/img/iris-v2.webp`);
